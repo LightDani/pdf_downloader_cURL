@@ -23,7 +23,6 @@ curl = curl.replace(re.findall("page=[0-9]", curl)[0], "page={}").replace("w=800
 # Downloading
 for page in range(pages):
   bash(curl.format(page, quality, page))
-# print(curl.format(page, quality, page))
 
 # Merging all images into pdf
 first_page = Image.open("0.png").convert('RGB')
