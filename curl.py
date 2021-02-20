@@ -18,17 +18,22 @@ quality = int(input("Enter quality (800, 1600, 3200): "))
 # cURL
 curl = input("Enter cURL: ")
 # Fix cURL
-curl = curl.replace(re.findall("page=[0-9]", curl)[0], "page={}").replace("w=800", "w={}").replace("   ", " ").replace("--compressed", "-o {}.png")
+curl = (
+    curl.replace(re.findall("page=\d+", curl)[0], "page={}")
+    .replace(re.findall("w=\d+", curl)[0], "w={}")
+    .replace("   ", " ")
+    .replace("--compressed", "-o {}.png")
+)
 
 # Downloading
 for page in range(pages):
-  bash(curl.format(page, quality, page))
+    bash(curl.format(page, quality, page))
 
 # Merging all images into pdf
-first_page = Image.open("0.png").convert('RGB')
-other_pages = [Image.open("{}.png".format(i)).convert('RGB') for i in range(1, pages)]
+first_page = Image.open("0.png").convert("RGB")
+other_pages = [Image.open("{}.png".format(i)).convert("RGB") for i in range(1, pages)]
 first_page.save("{}.pdf".format(name), save_all=True, append_images=other_pages)
 
 # Finally delete all images
 for i in range(pages):
-  os.remove("{}.png".format(i))
+    os.remove("{}.png".format(i))
