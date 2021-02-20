@@ -10,7 +10,8 @@ python curl.py
 
 ### how to get curl:
 1. open pdf link, once it loaded up press f12 or ctrl+shift+i to get into developer tools
-2. navigate to network and scroll down until you get img?id=blabla
+2. navigate to network and scroll down until you get img?id=blabla.*
 3. right click on it and select copy as cURL
 4. open a text editor and paste it. Delete all escape char and the new line (it'll causes error)
 5. once you done, copy all and you ready to go
+* If you can't find it, use blob:https:blabla. copy all as cURL and paste it in text editor. Search for "w=", copy that line until --compresssed, follow step 4. What you should copy must contain 1. page=blabla, 2. w=blabla
