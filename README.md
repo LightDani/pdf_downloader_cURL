@@ -14,4 +14,4 @@ python curl.py
 3. right click on it and select copy as cURL
 4. open a text editor and paste it. Delete all escape char and the new line (it'll causes error)
 5. once you done, copy all and you ready to go
-* If you can't find it, use blob:https:blabla. copy all as cURL and paste it in text editor. Search for "w=", copy that line until --compresssed, follow step 4. What you should copy must contain 1. page=blabla, 2. w=blabla
+* If you can't find it, use blob:https:blabla. copy all as cURL and paste it in text editor. Search for "w=", copy that line until --compressed, follow step 4. What you should copy must contain 1. page=blabla, 2. w=blabla
